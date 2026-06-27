@@ -1,0 +1,17 @@
+{
+  "name": "Fließend — German A2 to C1",
+  "short_name": "Fließend",
+  "description": "Learn German from hesitant A2 to confident C1 with the Immersion Spiral method.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#b5451f",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
