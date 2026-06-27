@@ -67,7 +67,7 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="mb-6 text-3xl font-bold">Settings</h1>
+      <h1 className="mb-6 text-[28px] font-normal leading-tight">Settings</h1>
 
       <section className="card mb-5">
         <h2 className="mb-3 font-semibold">Voice</h2>

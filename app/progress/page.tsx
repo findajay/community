@@ -53,7 +53,9 @@ export default function ProgressPage() {
 
   return (
     <div>
-      <h1 className="mb-1 text-3xl font-bold">Your progress</h1>
+      <h1 className="mb-1 text-[28px] font-normal leading-tight">
+        Your progress
+      </h1>
       <p className="mb-6 text-ink/60">
         What you can actually <em>do</em> in German — not just a percentage.
       </p>

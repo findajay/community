@@ -39,7 +39,7 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
         <Link href="/" className="text-sm text-ink/50 hover:text-ink">
           ← Exit lesson
         </Link>
-        <h1 className="mt-1 text-2xl font-bold">{lesson.title}</h1>
+        <h1 className="mt-1 text-2xl font-medium">{lesson.title}</h1>
         <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-ink/10">
           <div
             className="h-full bg-brand transition-all"
