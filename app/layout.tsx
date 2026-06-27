@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Fließend — German A2 → C1",
   description:
     "Learn German from hesitant A2 to confident C1 with the Immersion Spiral method: input, drills, real speaking practice, spaced repetition, and simulated conversations.",
-  manifest: "/manifest.webmanifest",
+  manifest: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/manifest.webmanifest`,
 };
 
 export const viewport: Viewport = {
