@@ -3,10 +3,11 @@ name: Deploy Fließend to GitHub Pages
 # Builds the static export and publishes it to GitHub Pages so the app can be
 # opened on any phone over HTTPS (needed for microphone access on Android).
 #
-# No manual setup needed: configure-pages runs with enablement:true, which
-# turns on Pages (GitHub Actions source) on the first run. Requires the repo
-# to be public (Pages is free for public repos). Every push to this branch
-# then redeploys automatically.
+# ONE-TIME MANUAL STEP (required — the workflow's token is not allowed to
+# enable Pages itself): in the repo, go to Settings → Pages → "Build and
+# deployment" → Source: "GitHub Actions". Then re-run this workflow (Actions
+# tab → this run → "Re-run all jobs") or push again. After that, every push to
+# this branch redeploys automatically. Pages is free for public repos.
 
 on:
   push:
@@ -45,10 +46,6 @@ jobs:
         run: npm run build
 
       - uses: actions/configure-pages@v5
-        with:
-          # Create/enable the Pages site automatically so no manual
-          # Settings → Pages toggle is needed for the first deploy.
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
