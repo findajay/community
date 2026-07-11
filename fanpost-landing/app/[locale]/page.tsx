@@ -1,4 +1,5 @@
 import SignupForm from "../components/SignupForm";
+import Reveal from "../components/Reveal";
 import { LOCALES, getDict, isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
 
 export default async function Home({
@@ -10,22 +11,37 @@ export default async function Home({
   const locale = isLocale(raw) ? raw : DEFAULT_LOCALE;
   const t = getDict(locale);
 
+  const tickerItems = [
+    t.features.weeklyTitle,
+    t.features.ticketsTitle,
+    t.features.calendarTitle,
+    t.features.passportTitle,
+  ];
+
   return (
     <>
-      <header className="wrap nav">
-        <div className="logo">
-          Fan<span>Post</span>
-        </div>
-        <nav className="lang">
-          {LOCALES.map((l) => (
-            <a key={l} href={`/${l}`} className={l === locale ? "active" : ""}>
-              {l.toUpperCase()}
-            </a>
-          ))}
-        </nav>
-      </header>
+      <div className="dark hero-wrap">
+        <div className="blob blob-a" aria-hidden="true" />
+        <div className="blob blob-b" aria-hidden="true" />
+        <div className="blob blob-c" aria-hidden="true" />
 
-      <main>
+        <header className="wrap nav">
+          <div className="logo">
+            Fan<span>Post</span>
+          </div>
+          <nav className="lang">
+            {LOCALES.map((l) => (
+              <a
+                key={l}
+                href={`/${l}`}
+                className={l === locale ? "active" : ""}
+              >
+                {l.toUpperCase()}
+              </a>
+            ))}
+          </nav>
+        </header>
+
         <section className="wrap hero">
           <div className="badge">
             {t.hero.badgePre}
@@ -43,28 +59,40 @@ export default async function Home({
             <SignupForm locale={locale} f={t.form} />
           </div>
         </section>
+      </div>
 
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {[0, 1].map((half) =>
+            tickerItems.map((item) => (
+              <span key={`${half}-${item}`}>⚽ {item}</span>
+            ))
+          )}
+        </div>
+      </div>
+
+      <main>
         <section className="section">
           <div className="wrap">
             <h2>{t.features.title}</h2>
             <p className="section-lede">{t.features.lede}</p>
             <div className="grid">
-              <div className="card">
+              <div className="card" data-reveal>
                 <div className="icon">📬</div>
                 <h3>{t.features.weeklyTitle}</h3>
                 <p>{t.features.weeklyText}</p>
               </div>
-              <div className="card">
+              <div className="card" data-reveal>
                 <div className="icon">🎟️</div>
                 <h3>{t.features.ticketsTitle}</h3>
                 <p>{t.features.ticketsText}</p>
               </div>
-              <div className="card">
+              <div className="card" data-reveal>
                 <div className="icon">📅</div>
                 <h3>{t.features.calendarTitle}</h3>
                 <p>{t.features.calendarText}</p>
               </div>
-              <div className="card">
+              <div className="card" data-reveal>
                 <div className="icon">🛂</div>
                 <h3>
                   {t.features.passportTitle}
@@ -76,19 +104,19 @@ export default async function Home({
           </div>
         </section>
 
-        <section className="section">
+        <section className="section dark">
           <div className="wrap">
             <h2>{t.how.title}</h2>
             <div className="steps" style={{ marginTop: 32 }}>
-              <div className="step">
+              <div className="step" data-reveal>
                 <h3>{t.how.step1Title}</h3>
                 <p>{t.how.step1Text}</p>
               </div>
-              <div className="step">
+              <div className="step" data-reveal>
                 <h3>{t.how.step2Title}</h3>
                 <p>{t.how.step2Text}</p>
               </div>
-              <div className="step">
+              <div className="step" data-reveal>
                 <h3>{t.how.step3Title}</h3>
                 <p>{t.how.step3Text}</p>
               </div>
@@ -101,7 +129,7 @@ export default async function Home({
             <h2>{t.faq.title}</h2>
             <div style={{ marginTop: 24 }}>
               {t.faq.items.map((item) => (
-                <details key={item.q}>
+                <details key={item.q} data-reveal>
                   <summary>{item.q}</summary>
                   <p>{item.a}</p>
                 </details>
@@ -111,13 +139,17 @@ export default async function Home({
         </section>
       </main>
 
-      <footer className="wrap footer">
-        <div>© {new Date().getFullYear()} a2welt UG (haftungsbeschränkt)</div>
-        <nav>
-          <a href={`/${locale}/impressum`}>{t.footer.impressum}</a>
-          <a href={`/${locale}/datenschutz`}>{t.footer.privacy}</a>
-        </nav>
-      </footer>
+      <div className="dark footer-band">
+        <footer className="wrap footer">
+          <div>© {new Date().getFullYear()} a2welt UG (haftungsbeschränkt)</div>
+          <nav>
+            <a href={`/${locale}/impressum`}>{t.footer.impressum}</a>
+            <a href={`/${locale}/datenschutz`}>{t.footer.privacy}</a>
+          </nav>
+        </footer>
+      </div>
+
+      <Reveal />
     </>
   );
 }
