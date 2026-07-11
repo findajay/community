@@ -14,7 +14,7 @@ export default async function Home({
     <>
       <header className="wrap nav">
         <div className="logo">
-          Match<span>Brief</span>
+          Fan<span>Post</span>
         </div>
         <nav className="lang">
           {LOCALES.map((l) => (

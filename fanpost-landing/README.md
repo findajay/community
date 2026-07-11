@@ -1,4 +1,4 @@
-# MatchBrief — waitlist landing page
+# FanPost — waitlist landing page
 
 Validation landing page for a personalized football briefing product:
 weekly email digest + ticket on-sale alerts + calendar sync + match passport.
@@ -37,7 +37,7 @@ npm run dev
 
 1. Create a free Postgres DB at neon.tech (EU region), run `schema.sql` against it.
 2. `vercel` from this directory (or import the repo in the Vercel dashboard,
-   set the project root to `matchbrief-landing/`).
+   set the project root to `fanpost-landing/`).
 3. Set env vars in Vercel: `DATABASE_URL`, `RESEND_API_KEY`, `EMAIL_FROM`,
    `PUBLIC_BASE_URL` (your production URL).
 4. Verify your sending domain in Resend so confirmation emails don't land in spam.
@@ -47,7 +47,7 @@ npm run dev
 - [ ] Fill in the `TODO` placeholders in `app/impressum/page.tsx`
       (Impressum is legally required in Germany) and name your actual
       providers in `app/datenschutz/page.tsx`.
-- [ ] Decide the real product name + domain ("MatchBrief" is a working title —
+- [ ] Decide the real product name + domain ("FanPost" is a working title —
       check trademark/domain availability first).
 - [ ] Point `PUBLIC_BASE_URL` and `EMAIL_FROM` at the real domain.
 

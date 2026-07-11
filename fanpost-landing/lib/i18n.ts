@@ -8,7 +8,7 @@ export function isLocale(value: string): value is Locale {
 
 const de = {
   meta: {
-    title: "MatchBrief – Deine Fußballwoche. Eine E-Mail.",
+    title: "FanPost – Deine Fußballwoche. Eine E-Mail.",
     description:
       "Spielpläne, Vorverkaufsstarts, Anstoßzeit-Änderungen und Ergebnisse für deine Vereine – über alle Ligen hinweg. Ein 2-Minuten-Briefing pro Woche. Nie wieder einen Vorverkauf verpassen.",
   },
@@ -24,7 +24,7 @@ const de = {
   },
   features: {
     title: "Für Fans, die mehr als einem Verein folgen",
-    lede: "Du folgst deinem Heimatverein, deinem Bundesliga-Klub und vielleicht noch einem Verein im Ausland. Auf dem Laufenden bleiben heißt: fünf Apps, drei Newsletter – und ein verpasster Vorverkauf. MatchBrief ersetzt das alles mit einem persönlichen Briefing.",
+    lede: "Du folgst deinem Heimatverein, deinem Bundesliga-Klub und vielleicht noch einem Verein im Ausland. Auf dem Laufenden bleiben heißt: fünf Apps, drei Newsletter – und ein verpasster Vorverkauf. FanPost ersetzt das alles mit einem persönlichen Briefing.",
     weeklyTitle: "Das Wochen-Briefing",
     weeklyText:
       "Ergebnisse, Tabellenstand und die nächsten Spiele deiner Vereine – in 2 Minuten gelesen, jede Woche in deinem Postfach.",
@@ -56,7 +56,7 @@ const de = {
     items: [
       {
         q: "Ist das noch eine News-App?",
-        a: "Nein. MatchBrief konkurriert nicht mit deinem Feed – es ersetzt das ständige Nachschauen. Ein Werkzeug: Was ist passiert, was kommt, was ist zu tun – nur für deine Vereine.",
+        a: "Nein. FanPost konkurriert nicht mit deinem Feed – es ersetzt das ständige Nachschauen. Ein Werkzeug: Was ist passiert, was kommt, was ist zu tun – nur für deine Vereine.",
       },
       {
         q: "Was kostet das?",
@@ -79,7 +79,7 @@ const de = {
     emailPlaceholder: "du@beispiel.de",
     clubsLabel: "Welchen Vereinen folgst du? (optional)",
     clubsPlaceholder: "z. B. Union Berlin, BVB, Ajax Amsterdam",
-    intentLabel: "Wenn es MatchBrief heute gäbe, würdest du…",
+    intentLabel: "Wenn es FanPost heute gäbe, würdest du…",
     intentFounding: "Das Gründungsangebot sichern – 30 €/Jahr",
     intentFoundingSub: "Alles inklusive, Preis für immer",
     intentMonthly: "Monatlich abonnieren – 5 €/Monat",
@@ -104,7 +104,7 @@ const de = {
   confirmed: {
     title: "Du bist auf der Liste.",
     text: "Deine E-Mail ist bestätigt. Wir melden uns, sobald die Gründungsmitglieder-Plätze öffnen – die Warteliste bekommt zuerst Zugriff auf das 30-€/Jahr-Angebot.",
-    back: "← Zurück zu MatchBrief",
+    back: "← Zurück zu FanPost",
   },
   footer: { impressum: "Impressum", privacy: "Datenschutz" },
 };
@@ -114,7 +114,7 @@ export type FormDict = Dict["form"];
 
 const en: Dict = {
   meta: {
-    title: "MatchBrief — Your football week, in one email",
+    title: "FanPost — Your football week, in one email",
     description:
       "Fixtures, ticket on-sales, kickoff changes and results for the clubs you follow, across every league. A 2-minute brief every week. Never miss an on-sale again.",
   },
@@ -130,7 +130,7 @@ const en: Dict = {
   },
   features: {
     title: "Built for fans who follow more than one club",
-    lede: "You follow your hometown club, your league's title contender, and maybe a club abroad you adopted years ago. Keeping up means five apps, three newsletters and a missed ticket on-sale. MatchBrief replaces all of it with one personal briefing.",
+    lede: "You follow your hometown club, your league's title contender, and maybe a club abroad you adopted years ago. Keeping up means five apps, three newsletters and a missed ticket on-sale. FanPost replaces all of it with one personal briefing.",
     weeklyTitle: "The weekly brief",
     weeklyText:
       "Results, table movement and upcoming fixtures for your clubs — written for a 2-minute read, delivered every week.",
@@ -162,7 +162,7 @@ const en: Dict = {
     items: [
       {
         q: "Is this another news app?",
-        a: "No. MatchBrief doesn't compete with your feed — it replaces the checking. It's a utility: what happened, what's next, and what you need to do about it, for your clubs only.",
+        a: "No. FanPost doesn't compete with your feed — it replaces the checking. It's a utility: what happened, what's next, and what you need to do about it, for your clubs only.",
       },
       {
         q: "What does it cost?",
@@ -185,7 +185,7 @@ const en: Dict = {
     emailPlaceholder: "you@example.com",
     clubsLabel: "Which clubs do you follow? (optional)",
     clubsPlaceholder: "e.g. Arsenal, Borussia Dortmund, Ajax",
-    intentLabel: "If MatchBrief existed today, you would…",
+    intentLabel: "If FanPost existed today, you would…",
     intentFounding: "Grab the founding deal — €30/year",
     intentFoundingSub: "Everything, locked in forever",
     intentMonthly: "Subscribe monthly — €5/month",
@@ -210,14 +210,14 @@ const en: Dict = {
   confirmed: {
     title: "You're on the list.",
     text: "Your email is confirmed. You'll hear from us when founding-member spots open — waitlist members get first access to the €30/year deal.",
-    back: "← Back to MatchBrief",
+    back: "← Back to FanPost",
   },
   footer: { impressum: "Impressum", privacy: "Privacy" },
 };
 
 const fr: Dict = {
   meta: {
-    title: "MatchBrief – Ta semaine de foot. En un e-mail.",
+    title: "FanPost – Ta semaine de foot. En un e-mail.",
     description:
       "Calendriers, mises en vente des billets, changements d'horaires et résultats pour tes clubs, dans tous les championnats. Un brief de 2 minutes par semaine. Ne rate plus jamais une mise en vente.",
   },
@@ -233,7 +233,7 @@ const fr: Dict = {
   },
   features: {
     title: "Pensé pour les fans qui suivent plus d'un club",
-    lede: "Tu suis ton club de cœur, un grand de Ligue 1 et peut-être un club à l'étranger. Rester à jour, c'est cinq applis, trois newsletters – et une mise en vente ratée. MatchBrief remplace tout ça par un brief personnel.",
+    lede: "Tu suis ton club de cœur, un grand de Ligue 1 et peut-être un club à l'étranger. Rester à jour, c'est cinq applis, trois newsletters – et une mise en vente ratée. FanPost remplace tout ça par un brief personnel.",
     weeklyTitle: "Le brief hebdo",
     weeklyText:
       "Résultats, classement et prochains matchs de tes clubs – lisible en 2 minutes, chaque semaine dans ta boîte mail.",
@@ -265,7 +265,7 @@ const fr: Dict = {
     items: [
       {
         q: "Encore une appli d'actus ?",
-        a: "Non. MatchBrief ne remplace pas ton fil d'actus – il remplace la vérification permanente. Un outil : ce qui s'est passé, ce qui arrive, ce qu'il faut faire – uniquement pour tes clubs.",
+        a: "Non. FanPost ne remplace pas ton fil d'actus – il remplace la vérification permanente. Un outil : ce qui s'est passé, ce qui arrive, ce qu'il faut faire – uniquement pour tes clubs.",
       },
       {
         q: "Combien ça coûte ?",
@@ -288,7 +288,7 @@ const fr: Dict = {
     emailPlaceholder: "toi@exemple.fr",
     clubsLabel: "Quels clubs suis-tu ? (facultatif)",
     clubsPlaceholder: "p. ex. RC Lens, OM, Borussia Dortmund",
-    intentLabel: "Si MatchBrief existait aujourd'hui, tu…",
+    intentLabel: "Si FanPost existait aujourd'hui, tu…",
     intentFounding: "Prendrais l'offre fondateur – 30 €/an",
     intentFoundingSub: "Tout inclus, prix bloqué à vie",
     intentMonthly: "T'abonnerais au mois – 5 €/mois",
@@ -313,14 +313,14 @@ const fr: Dict = {
   confirmed: {
     title: "Tu es sur la liste.",
     text: "Ton e-mail est confirmé. On te préviendra dès l'ouverture des places fondateurs – la liste d'attente a accès en premier à l'offre à 30 €/an.",
-    back: "← Retour à MatchBrief",
+    back: "← Retour à FanPost",
   },
   footer: { impressum: "Mentions légales", privacy: "Confidentialité" },
 };
 
 const es: Dict = {
   meta: {
-    title: "MatchBrief – Tu semana de fútbol. En un solo correo.",
+    title: "FanPost – Tu semana de fútbol. En un solo correo.",
     description:
       "Calendarios, ventas de entradas, cambios de horario y resultados de tus equipos, en todas las ligas. Un resumen de 2 minutos a la semana. No vuelvas a perderte una venta de entradas.",
   },
@@ -336,7 +336,7 @@ const es: Dict = {
   },
   features: {
     title: "Para aficionados que siguen a más de un equipo",
-    lede: "Sigues al equipo de tu ciudad, a un grande de LaLiga y quizá a un club extranjero. Estar al día significa cinco apps, tres boletines y una venta de entradas perdida. MatchBrief lo sustituye todo por un resumen personal.",
+    lede: "Sigues al equipo de tu ciudad, a un grande de LaLiga y quizá a un club extranjero. Estar al día significa cinco apps, tres boletines y una venta de entradas perdida. FanPost lo sustituye todo por un resumen personal.",
     weeklyTitle: "El resumen semanal",
     weeklyText:
       "Resultados, clasificación y próximos partidos de tus equipos: 2 minutos de lectura, cada semana en tu bandeja de entrada.",
@@ -368,7 +368,7 @@ const es: Dict = {
     items: [
       {
         q: "¿Otra app de noticias?",
-        a: "No. MatchBrief no compite con tu feed: elimina la necesidad de estar comprobando. Es una herramienta: qué pasó, qué viene y qué tienes que hacer, solo de tus equipos.",
+        a: "No. FanPost no compite con tu feed: elimina la necesidad de estar comprobando. Es una herramienta: qué pasó, qué viene y qué tienes que hacer, solo de tus equipos.",
       },
       {
         q: "¿Cuánto cuesta?",
@@ -391,7 +391,7 @@ const es: Dict = {
     emailPlaceholder: "tu@ejemplo.es",
     clubsLabel: "¿A qué equipos sigues? (opcional)",
     clubsPlaceholder: "p. ej. Real Betis, Atlético, Borussia Dortmund",
-    intentLabel: "Si MatchBrief existiera hoy, tú…",
+    intentLabel: "Si FanPost existiera hoy, tú…",
     intentFounding: "Cogerías la oferta fundadora: 30 €/año",
     intentFoundingSub: "Todo incluido, precio para siempre",
     intentMonthly: "Te suscribirías al mes: 5 €/mes",
@@ -416,14 +416,14 @@ const es: Dict = {
   confirmed: {
     title: "Estás en la lista.",
     text: "Tu correo está confirmado. Te avisaremos cuando se abran las plazas de miembro fundador: la lista de espera accede primero a la oferta de 30 €/año.",
-    back: "← Volver a MatchBrief",
+    back: "← Volver a FanPost",
   },
   footer: { impressum: "Aviso legal", privacy: "Privacidad" },
 };
 
 const it: Dict = {
   meta: {
-    title: "MatchBrief – La tua settimana di calcio. In una sola email.",
+    title: "FanPost – La tua settimana di calcio. In una sola email.",
     description:
       "Calendari, vendite biglietti, cambi d'orario e risultati delle tue squadre, in tutti i campionati. Un brief di 2 minuti a settimana. Non perdere mai più una messa in vendita.",
   },
@@ -439,7 +439,7 @@ const it: Dict = {
   },
   features: {
     title: "Per i tifosi che seguono più di una squadra",
-    lede: "Segui la squadra della tua città, una big di Serie A e magari un club all'estero. Restare aggiornato significa cinque app, tre newsletter e una vendita di biglietti persa. MatchBrief sostituisce tutto con un brief personale.",
+    lede: "Segui la squadra della tua città, una big di Serie A e magari un club all'estero. Restare aggiornato significa cinque app, tre newsletter e una vendita di biglietti persa. FanPost sostituisce tutto con un brief personale.",
     weeklyTitle: "Il brief settimanale",
     weeklyText:
       "Risultati, classifica e prossime partite delle tue squadre – 2 minuti di lettura, ogni settimana nella tua casella.",
@@ -471,7 +471,7 @@ const it: Dict = {
     items: [
       {
         q: "Un'altra app di notizie?",
-        a: "No. MatchBrief non compete col tuo feed: elimina il controllo continuo. È uno strumento: cosa è successo, cosa arriva, cosa devi fare – solo per le tue squadre.",
+        a: "No. FanPost non compete col tuo feed: elimina il controllo continuo. È uno strumento: cosa è successo, cosa arriva, cosa devi fare – solo per le tue squadre.",
       },
       {
         q: "Quanto costa?",
@@ -494,7 +494,7 @@ const it: Dict = {
     emailPlaceholder: "tu@esempio.it",
     clubsLabel: "Quali squadre segui? (facoltativo)",
     clubsPlaceholder: "es. Napoli, Atalanta, Borussia Dortmund",
-    intentLabel: "Se MatchBrief esistesse oggi, tu…",
+    intentLabel: "Se FanPost esistesse oggi, tu…",
     intentFounding: "Prenderesti l'offerta fondatore – 30 €/anno",
     intentFoundingSub: "Tutto incluso, prezzo bloccato per sempre",
     intentMonthly: "Ti abboneresti al mese – 5 €/mese",
@@ -519,7 +519,7 @@ const it: Dict = {
   confirmed: {
     title: "Sei in lista.",
     text: "La tua email è confermata. Ti avviseremo quando si apriranno i posti da socio fondatore – la lista d'attesa accede per prima all'offerta da 30 €/anno.",
-    back: "← Torna a MatchBrief",
+    back: "← Torna a FanPost",
   },
   footer: { impressum: "Note legali", privacy: "Privacy" },
 };

@@ -6,12 +6,12 @@ import type { Locale } from "@/lib/i18n";
 
 const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> = {
   de: {
-    subject: "Bestätige deinen Platz auf der MatchBrief-Warteliste",
+    subject: "Bestätige deinen Platz auf der FanPost-Warteliste",
     body: (url) =>
       [
         "Hallo,",
         "",
-        "bitte bestätige, dass du auf die MatchBrief-Warteliste möchtest:",
+        "bitte bestätige, dass du auf die FanPost-Warteliste möchtest:",
         "",
         url,
         "",
@@ -19,12 +19,12 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
       ].join("\n"),
   },
   en: {
-    subject: "Confirm your MatchBrief waitlist spot",
+    subject: "Confirm your FanPost waitlist spot",
     body: (url) =>
       [
         "Hi,",
         "",
-        "please confirm you want to join the MatchBrief waitlist:",
+        "please confirm you want to join the FanPost waitlist:",
         "",
         url,
         "",
@@ -32,12 +32,12 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
       ].join("\n"),
   },
   fr: {
-    subject: "Confirme ta place sur la liste d'attente MatchBrief",
+    subject: "Confirme ta place sur la liste d'attente FanPost",
     body: (url) =>
       [
         "Bonjour,",
         "",
-        "merci de confirmer ton inscription à la liste d'attente MatchBrief :",
+        "merci de confirmer ton inscription à la liste d'attente FanPost :",
         "",
         url,
         "",
@@ -45,12 +45,12 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
       ].join("\n"),
   },
   es: {
-    subject: "Confirma tu plaza en la lista de espera de MatchBrief",
+    subject: "Confirma tu plaza en la lista de espera de FanPost",
     body: (url) =>
       [
         "Hola:",
         "",
-        "confirma que quieres unirte a la lista de espera de MatchBrief:",
+        "confirma que quieres unirte a la lista de espera de FanPost:",
         "",
         url,
         "",
@@ -58,12 +58,12 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
       ].join("\n"),
   },
   it: {
-    subject: "Conferma il tuo posto nella lista d'attesa di MatchBrief",
+    subject: "Conferma il tuo posto nella lista d'attesa di FanPost",
     body: (url) =>
       [
         "Ciao,",
         "",
-        "conferma di volerti iscrivere alla lista d'attesa di MatchBrief:",
+        "conferma di volerti iscrivere alla lista d'attesa di FanPost:",
         "",
         url,
         "",
@@ -72,7 +72,7 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
   },
 };
 
-const SIGNATURE = "\n\nMatchBrief · a2welt UG (haftungsbeschränkt)";
+const SIGNATURE = "\n\nFanPost · a2welt UG (haftungsbeschränkt)";
 
 export async function sendConfirmEmail(to: string, token: string, locale: Locale) {
   const baseUrl = process.env.PUBLIC_BASE_URL ?? "http://localhost:3000";
@@ -92,7 +92,7 @@ export async function sendConfirmEmail(to: string, token: string, locale: Locale
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: process.env.EMAIL_FROM ?? "MatchBrief <hello@example.com>",
+      from: process.env.EMAIL_FROM ?? "FanPost <hello@example.com>",
       to: [to],
       subject: mail.subject,
       text: mail.body(confirmUrl) + SIGNATURE,

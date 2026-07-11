@@ -3,7 +3,7 @@ export default function Datenschutz() {
     <main className="wrap legal">
       <h1>Datenschutzerklärung / Privacy Notice</h1>
       <p>
-        This page summarises how the MatchBrief waitlist handles personal data.
+        This page summarises how the FanPost waitlist handles personal data.
         Deutsche Fassung auf Anfrage; verantwortlich im Sinne der DSGVO ist die
         a2welt UG (haftungsbeschränkt) — siehe <a href="impressum">Impressum</a>.
       </p>
@@ -17,7 +17,7 @@ export default function Datenschutz() {
 
       <h2>Why and on what legal basis</h2>
       <p>
-        We use your email exclusively to send you updates about the MatchBrief
+        We use your email exclusively to send you updates about the FanPost
         launch. Legal basis is your consent (Art. 6 (1)(a) GDPR), which you give
         at signup and confirm via a confirmation email (double opt-in).
       </p>
