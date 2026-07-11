@@ -1,14 +1,87 @@
-// Sends the double opt-in confirmation email via Resend's REST API.
-// Without RESEND_API_KEY (local dev), the confirm link is logged instead
-// so the flow stays testable end-to-end.
+import type { Locale } from "@/lib/i18n";
 
-export async function sendConfirmEmail(to: string, token: string) {
+// Sends the double opt-in confirmation email via Resend's REST API, in the
+// language the visitor signed up in. Without RESEND_API_KEY (local dev), the
+// confirm link is logged instead so the flow stays testable end-to-end.
+
+const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> = {
+  de: {
+    subject: "Bestätige deinen Platz auf der MatchBrief-Warteliste",
+    body: (url) =>
+      [
+        "Hallo,",
+        "",
+        "bitte bestätige, dass du auf die MatchBrief-Warteliste möchtest:",
+        "",
+        url,
+        "",
+        "Wenn du dich nicht angemeldet hast, ignoriere diese E-Mail einfach – es wird nichts gespeichert.",
+      ].join("\n"),
+  },
+  en: {
+    subject: "Confirm your MatchBrief waitlist spot",
+    body: (url) =>
+      [
+        "Hi,",
+        "",
+        "please confirm you want to join the MatchBrief waitlist:",
+        "",
+        url,
+        "",
+        "If you didn't sign up, just ignore this email — nothing will be stored.",
+      ].join("\n"),
+  },
+  fr: {
+    subject: "Confirme ta place sur la liste d'attente MatchBrief",
+    body: (url) =>
+      [
+        "Bonjour,",
+        "",
+        "merci de confirmer ton inscription à la liste d'attente MatchBrief :",
+        "",
+        url,
+        "",
+        "Si tu ne t'es pas inscrit(e), ignore simplement cet e-mail – rien ne sera conservé.",
+      ].join("\n"),
+  },
+  es: {
+    subject: "Confirma tu plaza en la lista de espera de MatchBrief",
+    body: (url) =>
+      [
+        "Hola:",
+        "",
+        "confirma que quieres unirte a la lista de espera de MatchBrief:",
+        "",
+        url,
+        "",
+        "Si no te has registrado, ignora este correo: no se guardará nada.",
+      ].join("\n"),
+  },
+  it: {
+    subject: "Conferma il tuo posto nella lista d'attesa di MatchBrief",
+    body: (url) =>
+      [
+        "Ciao,",
+        "",
+        "conferma di volerti iscrivere alla lista d'attesa di MatchBrief:",
+        "",
+        url,
+        "",
+        "Se non ti sei iscritto/a, ignora questa email: non verrà salvato nulla.",
+      ].join("\n"),
+  },
+};
+
+const SIGNATURE = "\n\nMatchBrief · a2welt UG (haftungsbeschränkt)";
+
+export async function sendConfirmEmail(to: string, token: string, locale: Locale) {
   const baseUrl = process.env.PUBLIC_BASE_URL ?? "http://localhost:3000";
   const confirmUrl = `${baseUrl}/api/confirm?token=${token}`;
+  const mail = MAILS[locale];
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.log(`[dev] confirm link for ${to}: ${confirmUrl}`);
+    console.log(`[dev] confirm link for ${to} (${locale}): ${confirmUrl}`);
     return;
   }
 
@@ -21,18 +94,8 @@ export async function sendConfirmEmail(to: string, token: string) {
     body: JSON.stringify({
       from: process.env.EMAIL_FROM ?? "MatchBrief <hello@example.com>",
       to: [to],
-      subject: "Confirm your MatchBrief waitlist spot",
-      text: [
-        "Hi,",
-        "",
-        "please confirm you want to join the MatchBrief waitlist:",
-        "",
-        confirmUrl,
-        "",
-        "If you didn't sign up, just ignore this email — nothing will be stored.",
-        "",
-        "MatchBrief · a2welt UG (haftungsbeschränkt)",
-      ].join("\n"),
+      subject: mail.subject,
+      text: mail.body(confirmUrl) + SIGNATURE,
     }),
   });
 

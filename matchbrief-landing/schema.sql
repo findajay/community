@@ -4,6 +4,7 @@ create table if not exists waitlist_signups (
   email         text not null unique,
   clubs         text,
   price_intent  text check (price_intent in ('founding_30_year', 'monthly_5', 'free_only')),
+  locale        text not null default 'de' check (locale in ('de', 'en', 'fr', 'es', 'it')),
   confirm_token uuid not null default gen_random_uuid(),
   confirmed_at  timestamptz,
   created_at    timestamptz not null default now()

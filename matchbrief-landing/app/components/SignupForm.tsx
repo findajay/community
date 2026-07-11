@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import type { FormDict, Locale } from "@/lib/i18n";
 
-export default function SignupForm() {
+export default function SignupForm({
+  locale,
+  f,
+}: {
+  locale: Locale;
+  f: FormDict;
+}) {
   const [status, setStatus] = useState<"idle" | "busy" | "ok" | "err">("idle");
   const [message, setMessage] = useState("");
 
@@ -16,73 +23,72 @@ export default function SignupForm() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale }),
       });
       const body = await res.json();
-      if (!res.ok) throw new Error(body.error ?? "Something went wrong.");
+      if (!res.ok) {
+        const code = body.error as keyof FormDict["errors"];
+        throw new Error(f.errors[code] ?? f.errors.server_error);
+      }
       setStatus("ok");
-      setMessage(
-        "Almost there — check your inbox and click the confirmation link to secure your spot."
-      );
+      setMessage(f.success);
       form.reset();
     } catch (err) {
       setStatus("err");
-      setMessage(err instanceof Error ? err.message : "Something went wrong.");
+      setMessage(err instanceof Error ? err.message : f.errors.server_error);
     }
   }
 
   return (
     <form className="form-card" onSubmit={onSubmit}>
-      <h3>Join the waitlist</h3>
-      <p className="hint">
-        Free to join. Founding-member pricing is offered to the waitlist first.
-      </p>
+      <h3>{f.title}</h3>
+      <p className="hint">{f.hint}</p>
 
       <div className="field">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{f.emailLabel}</label>
         <input
           id="email"
           name="email"
           type="email"
           required
-          placeholder="you@example.com"
+          placeholder={f.emailPlaceholder}
           autoComplete="email"
         />
       </div>
 
       <div className="field">
-        <label htmlFor="clubs">Which clubs do you follow? (optional)</label>
+        <label htmlFor="clubs">{f.clubsLabel}</label>
         <input
           id="clubs"
           name="clubs"
           type="text"
-          placeholder="e.g. Union Berlin, Arsenal, SV Babelsberg 03"
+          placeholder={f.clubsPlaceholder}
           maxLength={300}
         />
       </div>
 
       <div className="field">
-        <label>If MatchBrief existed today, you would…</label>
+        <label>{f.intentLabel}</label>
         <div className="intent">
           <label>
             <input type="radio" name="priceIntent" value="founding_30_year" />
             <span>
-              Grab the founding deal — €30/year
-              <small>Everything, locked in forever</small>
+              {f.intentFounding}
+              <small>{f.intentFoundingSub}</small>
             </span>
           </label>
           <label>
             <input type="radio" name="priceIntent" value="monthly_5" />
             <span>
-              Subscribe monthly — €5/month
-              <small>Everything, cancel anytime</small>
+              {f.intentMonthly}
+              <small>{f.intentMonthlySub}</small>
             </span>
           </label>
           <label>
             <input type="radio" name="priceIntent" value="free_only" />
             <span>
-              Use the free tier only
-              <small>One club, monthly brief</small>
+              {f.intentFree}
+              <small>{f.intentFreeSub}</small>
             </span>
           </label>
         </div>
@@ -97,14 +103,14 @@ export default function SignupForm() {
       <label className="consent">
         <input type="checkbox" name="consent" value="yes" required />
         <span>
-          I'd like to receive the launch updates by email. Consent is confirmed
-          via a confirmation email (double opt-in) and can be withdrawn anytime.
-          See the <a href="/datenschutz">privacy notice</a>.
+          {f.consent1}
+          <a href={`/${locale}/datenschutz`}>{f.consentLink}</a>
+          {f.consent2}
         </span>
       </label>
 
       <button className="btn" type="submit" disabled={status === "busy"}>
-        {status === "busy" ? "Joining…" : "Join the waitlist →"}
+        {status === "busy" ? f.submitting : f.submit}
       </button>
 
       {message && (

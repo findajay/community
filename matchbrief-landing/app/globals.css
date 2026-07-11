@@ -61,6 +61,27 @@ a:hover {
   color: var(--accent);
 }
 
+.lang {
+  display: flex;
+  gap: 4px;
+}
+.lang a {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.lang a:hover {
+  text-decoration: none;
+  color: var(--text);
+}
+.lang a.active {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+
 .hero {
   padding: 72px 0 56px;
   text-align: center;
