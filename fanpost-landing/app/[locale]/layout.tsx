@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Geist } from "next/font/google";
 import { LOCALES, getDict, isLocale, type Locale } from "@/lib/i18n";
 import "../globals.css";
+
+const geist = Geist({ subsets: ["latin"], display: "swap" });
 
 // Unknown locales 404 instead of rendering with a missing dictionary.
 export const dynamicParams = false;
@@ -36,7 +39,7 @@ export default async function RootLayout({
   const { locale } = await params;
   return (
     <html lang={locale as Locale}>
-      <body>{children}</body>
+      <body className={geist.className}>{children}</body>
     </html>
   );
 }

@@ -94,7 +94,7 @@ export default function SignupForm({
         </div>
       </div>
 
-      {/* honeypot — bots fill this, humans never see it */}
+      {/* honeypot: bots fill this, humans never see it */}
       <div className="honeypot" aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />

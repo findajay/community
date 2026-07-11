@@ -15,7 +15,7 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
         "",
         url,
         "",
-        "Wenn du dich nicht angemeldet hast, ignoriere diese E-Mail einfach – es wird nichts gespeichert.",
+        "Wenn du dich nicht angemeldet hast, ignoriere diese E-Mail einfach, es wird nichts gespeichert.",
       ].join("\n"),
   },
   en: {
@@ -28,7 +28,7 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
         "",
         url,
         "",
-        "If you didn't sign up, just ignore this email — nothing will be stored.",
+        "If you didn't sign up, just ignore this email, nothing will be stored.",
       ].join("\n"),
   },
   fr: {
@@ -41,7 +41,7 @@ const MAILS: Record<Locale, { subject: string; body: (url: string) => string }> 
         "",
         url,
         "",
-        "Si tu ne t'es pas inscrit(e), ignore simplement cet e-mail – rien ne sera conservé.",
+        "Si tu ne t'es pas inscrit(e), ignore simplement cet e-mail, rien ne sera conservé.",
       ].join("\n"),
   },
   es: {

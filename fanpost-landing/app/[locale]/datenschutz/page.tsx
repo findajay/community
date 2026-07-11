@@ -5,7 +5,7 @@ export default function Datenschutz() {
       <p>
         This page summarises how the FanPost waitlist handles personal data.
         Deutsche Fassung auf Anfrage; verantwortlich im Sinne der DSGVO ist die
-        a2welt UG (haftungsbeschränkt) — siehe <a href="impressum">Impressum</a>.
+        a2welt UG (haftungsbeschränkt), siehe <a href="impressum">Impressum</a>.
       </p>
 
       <h2>What we collect</h2>
@@ -39,7 +39,7 @@ export default function Datenschutz() {
       <h2>Your rights</h2>
       <p>
         You can withdraw consent, and request access, correction or deletion at
-        any time — every email contains an unsubscribe link, or write to the
+        any time. Every email contains an unsubscribe link, or write to the
         address in the <a href="impressum">Impressum</a>. You also have the
         right to lodge a complaint with a supervisory authority.
       </p>
