@@ -1,7 +1,7 @@
 /*
  * FanPost design tokens.
  * Theme: dark stadium-night top zone, ONE deliberate switch to a light zone.
- * Accent: single hot orange family (#ff6a2b on dark, #d9480f fills).
+ * Accent: single electric cobalt family (#5b9bff on dark, #2563eb fills).
  * Radius rule: pills are full-round, tiles/cards 16px, buttons/inputs 12px.
  * Z-index scale: 1 = page content, 2 = sticky/nav. Nothing higher.
  */
@@ -16,8 +16,8 @@
   --paper-border: #e2e0db;
   --paper-text: #1c1a22;
   --paper-dim: #5c5864;
-  --accent: #ff6a2b;
-  --accent-strong: #d9480f;
+  --accent: #5b9bff;
+  --accent-strong: #2563eb;
   --accent-on: #ffffff;
   --ok: #2b7a3f;
   --danger: #c92a2a;
@@ -110,6 +110,34 @@ a:hover {
   color: var(--accent);
 }
 
+/* ------- hero: photo background behind nav + split hero ------- */
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  object-fit: cover;
+  z-index: 0;
+}
+/* Scrim keeps hero text at AA contrast and fades the photo into the ink bg */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 18, 24, 0.78) 0%,
+    rgba(20, 18, 24, 0.6) 55%,
+    #141218 100%
+  );
+}
+.hero-shell .nav,
+.hero-shell .hero {
+  position: relative;
+  z-index: 1;
+}
+
 /* ------- hero: asymmetric split, copy left / product email right ------- */
 
 .hero {
@@ -198,7 +226,7 @@ h1 em {
     background 0.2s ease;
 }
 .btn:hover {
-  background: #c23f0c;
+  background: #1d4ed8;
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -270,7 +298,7 @@ a.btn {
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  background: rgba(217, 72, 15, 0.1);
+  background: rgba(37, 99, 235, 0.1);
   color: var(--accent-strong);
   flex-shrink: 0;
 }
@@ -378,13 +406,13 @@ h2 {
 .tile-glow {
   background: radial-gradient(
       120% 130% at 0% 0%,
-      rgba(255, 106, 43, 0.16) 0%,
+      rgba(91, 155, 255, 0.15) 0%,
       transparent 55%
     ),
     var(--ink-2);
 }
 .tile-accent {
-  background: linear-gradient(150deg, #b23a0a 0%, #8a2d08 100%);
+  background: linear-gradient(150deg, #1e40af 0%, #16316f 100%);
   border-color: transparent;
 }
 .tile-accent .tile-icon {
@@ -393,8 +421,46 @@ h2 {
 .tile-accent p {
   color: rgba(255, 255, 255, 0.82);
 }
-.tile-outline {
-  background: transparent;
+.tile-photo {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.tile-photo-img {
+  object-fit: cover;
+}
+.tile-photo-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    12deg,
+    rgba(12, 11, 16, 0.88) 30%,
+    rgba(12, 11, 16, 0.35) 100%
+  );
+}
+.tile-photo-body {
+  position: relative;
+  padding: 26px;
+}
+.tile-photo-body p {
+  color: rgba(244, 242, 247, 0.85);
+}
+
+.band {
+  position: relative;
+  height: clamp(240px, 34vw, 440px);
+}
+.band-img {
+  object-fit: cover;
+}
+/* Blend the panorama's top edge into the dark zone above it */
+.band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, #141218 0%, transparent 20%);
+  pointer-events: none;
 }
 
 .soon {
@@ -528,7 +594,7 @@ h2 {
 }
 .intent label:has(input:checked) {
   border-color: var(--accent-strong);
-  background: rgba(217, 72, 15, 0.05);
+  background: rgba(37, 99, 235, 0.05);
 }
 .intent input {
   margin-top: 4px;

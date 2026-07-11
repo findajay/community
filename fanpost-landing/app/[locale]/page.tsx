@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SignupForm from "../components/SignupForm";
 import Reveal from "../components/Reveal";
 import BriefPreview from "../components/BriefPreview";
@@ -29,21 +30,31 @@ export default async function Home({
     <>
       {/* Dark zone: nav + split hero + marquee + bento. One theme switch below. */}
       <div className="zone-dark">
-        <header className="wrap nav">
-          <div className="logo">
-            Fan<span>Post</span>
-          </div>
-          <nav className="lang" aria-label="Language">
-            {LOCALES.map((l) => (
-              <a key={l} href={`/${l}`} className={l === locale ? "active" : ""}>
-                {l.toUpperCase()}
-              </a>
-            ))}
-          </nav>
-        </header>
+        <div className="hero-shell">
+          <Image
+            src="/img/hero-stadium.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-bg"
+          />
+          <div className="hero-scrim" aria-hidden="true" />
+          <header className="wrap nav">
+            <div className="logo">
+              Fan<span>Post</span>
+            </div>
+            <nav className="lang" aria-label="Language">
+              {LOCALES.map((l) => (
+                <a key={l} href={`/${l}`} className={l === locale ? "active" : ""}>
+                  {l.toUpperCase()}
+                </a>
+              ))}
+            </nav>
+          </header>
 
-        <section className="wrap hero">
-          <div className="hero-copy">
+          <section className="wrap hero">
+            <div className="hero-copy">
             <p className="badge">
               {t.hero.badgePre}
               <b>{t.hero.badgeBold}</b>
@@ -56,10 +67,11 @@ export default async function Home({
               {t.form.submit}
             </a>
           </div>
-          <div className="hero-visual">
-            <BriefPreview p={t.preview} />
-          </div>
-        </section>
+            <div className="hero-visual">
+              <BriefPreview p={t.preview} />
+            </div>
+          </section>
+        </div>
 
         <div className="ticker" aria-hidden="true">
           <div className="ticker-track">
@@ -93,16 +105,36 @@ export default async function Home({
               <h3>{t.features.calendarTitle}</h3>
               <p>{t.features.calendarText}</p>
             </div>
-            <div className="tile tile-outline" data-reveal>
-              <Stamp size={26} weight="duotone" className="tile-icon" />
-              <h3>
-                {t.features.passportTitle}
-                <span className="soon">{t.features.passportSoon}</span>
-              </h3>
-              <p>{t.features.passportText}</p>
+            <div className="tile tile-photo" data-reveal>
+              <Image
+                src="/img/passport-tickets.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 100vw, 40vw"
+                className="tile-photo-img"
+              />
+              <div className="tile-photo-scrim" aria-hidden="true" />
+              <div className="tile-photo-body">
+                <Stamp size={26} weight="duotone" className="tile-icon" />
+                <h3>
+                  {t.features.passportTitle}
+                  <span className="soon">{t.features.passportSoon}</span>
+                </h3>
+                <p>{t.features.passportText}</p>
+              </div>
             </div>
           </div>
         </section>
+
+        <figure className="band">
+          <Image
+            src="/img/band-crowd.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="band-img"
+          />
+        </figure>
       </div>
 
       {/* Single deliberate theme switch: everything below is light. */}
